@@ -2,10 +2,10 @@
 
 FactoryGirl.define do
   factory :booking do
-    customer nil
-    timeslot nil
-    quantity 1
-    cost 1
+    association :customer
+    association :timeslot
+    quantity 14
+    cost 245.00
     listing_review "MyString"
   end
 end

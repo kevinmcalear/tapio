@@ -2,10 +2,10 @@
 
 FactoryGirl.define do
   factory :review do
-    customer nil
-    vendor nil
-    title "MyString"
-    score 1
-    review "MyText"
+    association :customer
+    association :vendor
+    title { Faker::Lorem.sentence(word_count = 1) }
+    score 3
+    review { Faker::Lorem.sentence(word_count = 5) }
   end
 end
