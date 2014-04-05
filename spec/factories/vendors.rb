@@ -12,7 +12,7 @@ FactoryGirl.define do
     profile_pic_url "http://placekitten.com/g/300/300"
     description { Faker::Lorem.sentence(word_count = 4) }
     city { Faker::Address.city}
-    state { Faker::Address.us_state }
+    state { Faker::AddressUS.state }
     address { Faker::Address.street_address(include_secondary = false) }
     zip { Faker::AddressUS.zip_code }
     # type ""
