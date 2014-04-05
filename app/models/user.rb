@@ -1,4 +1,4 @@
-class Vendor < User
+class User < ActiveRecord::Base
   has_many :listings
   validates :email, presence: :true, uniqueness: :true 
   has_secure_password

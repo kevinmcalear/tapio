@@ -2,19 +2,19 @@
 
 FactoryGirl.define do
   factory :customer do
-    user_name "MyString"
-    email "MyString"
-    first_name "MyString"
-    last_name "MyString"
-    password_digest "MyString"
-    phone_number "MyString"
-    profile_pic_url "MyString"
-    description "MyText"
-    timestamps "MyString"
-    city "MyString"
-    state "MyString"
-    address "MyString"
-    zip "MyString"
+    user_name { Faker::Internet.user_name }
+    email { Faker::Internet.email }
+    first_name { Faker::Name.first_name }
+    last_name { Faker::Name.last_name }
+    password "test"
+    password_confirmation "test"
+    phone_number { Faker::PhoneNumber.phone_number }
+    profile_pic_url "http://placekitten.com/g/300/300"
+    description { Faker::Lorem.sentence(word_count = 4) }
+    city { Faker::Address.city}
+    state { Faker::Address.us_state }
+    address { Faker::Address.street_address(include_secondary = false) }
+    zip { Faker::AddressUS.zip_code }
     type "Customer"
   end
 end
