@@ -9,5 +9,6 @@ class Listing < ActiveRecord::Base
   validates :zip, presence: :true
   validates :quantity, presence: :true
   validates :rate, presence: :true
+  
   validates :vendor_id, presence: :true
 end

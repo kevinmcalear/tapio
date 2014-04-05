@@ -11,5 +11,6 @@ describe Listing do
   it { should validate_presence_of(:zip) }
   it { should validate_presence_of(:quantity) }
   it { should validate_presence_of(:rate) }
+  
   it { should validate_presence_of(:vendor_id) }
 end
