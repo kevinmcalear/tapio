@@ -1,4 +1,27 @@
 Tapio::Application.routes.draw do
+
+  # splash page
+  root "welcome#index"
+
+  # basic pages linkable from navbar
+  get  "/about", to: "welcome#about" # about page for website
+  get "/contact", to: "welcome#contact" # contact page
+
+  # session links
+  get  "/login", to: "session#new"           # sign in form
+  post "/session", to: "session#create"      # log in
+  delete "/session", to: "session#destroy"   # log out
+  # resource :session, only: [:create, :destroy]
+
+  namespace :dashboard do
+    get "/admin",    to: "users#admin" #if user signing in is an admin, they are redirected to this page.
+    get "/vendor", to: "users#vendor"  # vendor landing page
+  end
+
+  resources :users
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -7,7 +7,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <header>
+      <nav>
+        <ul>
+          <li><%= link_to "About",   about_path %></li>
+          <% if logged_in? %>
+            <li><%= link_to "Account", "#{user_path(session[:user_id])}" %></li>
+          <% end %>
+          <li><%= link_to "Contact", contact_path %></li>
+          <% if logged_in? %>
+            <li><%= link_to("Log out #{User.find_by(id: session[:user_id]).first_name.capitalize}", "/session", method: "delete") %></li>  
+          <% else %>
+            <li><%= link_to "Create Account", new_user_path %></li>
+            <li><%= link_to("Log In","/login") %></li>
+          <% end %>
+        </ul>
+      </nav>
+      <section id="branding">
+        <a href="<%= root_path %>"><%= image_tag("http://www.archonsystems.com/devblog/wp-content/uploads/2012/02/Prabakar_avatar2-66x66.jpg") %></a>
+      </section>
+    </header>
 <%= yield %>
 
 </body>
