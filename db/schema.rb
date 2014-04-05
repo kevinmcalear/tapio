@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405145419) do
+ActiveRecord::Schema.define(version: 20140405150205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: true do |t|
+    t.integer  "customer_id"
+    t.integer  "timeslot_id"
+    t.integer  "quantity"
+    t.integer  "cost"
+    t.string   "listing_review"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bookings", ["customer_id"], name: "index_bookings_on_customer_id", using: :btree
+  add_index "bookings", ["timeslot_id"], name: "index_bookings_on_timeslot_id", using: :btree
 
   create_table "listings", force: true do |t|
     t.string   "name"
