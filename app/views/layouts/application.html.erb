@@ -18,7 +18,7 @@
          
          <% if logged_in? && User.find_by(id: session[:user_id]).type == "Vendor" %>
             <li><%= link_to "Add A Listing", new_vendor_listing_path(Vendor.find_by(id: session[:user_id])) %></li>
-            <li><%= link_to "See Your Listings", "#{user_path(session[:user_id])}" %></li>
+            <li><%= link_to "See Your Listings", vendor_listings_path(Vendor.find_by(id: session[:user_id])) %></li>
           <% end %>
           
           <% if logged_in? && User.find_by(id: session[:user_id]).type == "Customer" %>

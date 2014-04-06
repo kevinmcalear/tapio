@@ -22,6 +22,7 @@ class ListingsController < ApplicationController
   end
 
   def index
+    @listings = @vendor.listings
   end
 
   def edit
