@@ -17,7 +17,7 @@
           <% end %>
          
          <% if logged_in? && User.find_by(id: session[:user_id]).type == "Vendor" %>
-            <li><%= link_to "Add A Listing", "#{user_path(session[:user_id])}" %></li>
+            <li><%= link_to "Add A Listing", new_vendor_listing_path(Vendor.find_by(id: session[:user_id])) %></li>
             <li><%= link_to "See Your Listings", "#{user_path(session[:user_id])}" %></li>
           <% end %>
           
@@ -37,7 +37,7 @@
         </ul>
       </nav>
       <section id="branding">
-        <a href="<%= root_path %>"><%= image_tag("http://www.archonsystems.com/devblog/wp-content/uploads/2012/02/Prabakar_avatar2-66x66.jpg") %></a>
+        <a href="<%= root_path %>"><%= image_tag("") %></a>
       </section>
     </header>
 <%= yield %>

@@ -5,7 +5,7 @@ FactoryGirl.define do
     name { Faker::Lorem.sentence(word_count = 1) }
     listing_pic_url "http://placekitten.com/g/300/300"
     description { Faker::Lorem.sentence(word_count = 4) }
-    city { Faker::Address.city}
+    city { Faker::Address.city }
     state { Faker::AddressUS.state }
     address { Faker::Address.street_address(include_secondary = false) }
     zip { Faker::AddressUS.zip_code }
