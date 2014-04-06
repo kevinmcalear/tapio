@@ -19,7 +19,11 @@ Tapio::Application.routes.draw do
   end
 
   resources :users
-  
+
+  resources :customers do
+    resources :bookings
+  end
+
   resources :vendors do
     resources :listings
   end

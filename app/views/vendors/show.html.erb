@@ -1,0 +1,16 @@
+<div class="journey_wrapper">
+  <h2 class="saved_headline"><%= @vendor.first_name %>'s Saved Journeys</h2>
+  <%= link_to "Edit My Info", edit_vendor_path(@vendor), class: "edit-account" %>
+
+<%= form_tag vendor_path(@vendor), method: "delete", class: "delete-account" do %>
+<%= submit_tag("Delete My Account") %>
+<% end %>
+  <span class="journey_title">
+  <ul id="vendor_journey_list" class="journey-item">
+    <li><%= @vendor.type %></li>
+    <li><%= @vendor.user_name %></li>
+    <li><%= @vendor.profile_pic_url %></li>
+  </ul>
+  </span> 
+</div>
+

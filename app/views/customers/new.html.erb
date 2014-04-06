@@ -1,0 +1,12 @@
+<% unless @customer.nil? || @customer.id.nil? %>
+  <div id="errors">
+    <h3>Errors!</h3>
+    <ul>
+      <% @customer.errors.messages.each do |field,error| %>
+        <li><em><%= "#{field.capitalize} #{error.first}!" %></em></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= render "form" %>
