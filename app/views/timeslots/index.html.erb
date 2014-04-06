@@ -1,0 +1,6 @@
+<h1>Available Timeslots</h1>
+<% @timeslots.each do |timeslot| %>
+  <div><%= link_to "#{timeslot.date} : #{timeslot.start_time} - #{timeslot.stop_time}" , vendor_listing_timeslot_path(@vendor, @listing, timeslot) %></div>
+<% end %>
+
+<%= link_to "Add Timeslots", new_vendor_listing_timeslot_path(@vendor, @listing, @timeslot) %>

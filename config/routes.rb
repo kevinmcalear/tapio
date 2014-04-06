@@ -20,12 +20,16 @@ Tapio::Application.routes.draw do
 
   resources :users
 
+  resources :listings
+
   resources :customers do
     resources :bookings
   end
 
   resources :vendors do
-    resources :listings
+    resources :listings do
+      resources :timeslots
+    end
   end
 
 

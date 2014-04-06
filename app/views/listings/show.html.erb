@@ -2,3 +2,4 @@
 <div><%= @listing.name %></div>
 <div><%= @listing.quantity %> People Per Trip</div>
 <div><%= number_to_currency(@listing.rate) %> Per Person</div>
+<%= link_to "See Available Timeslots", vendor_listing_timeslots_path(@vendor, @listing) %>

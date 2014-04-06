@@ -7,7 +7,6 @@ describe Timeslot do
   it { should validate_presence_of(:date) }
   it { should validate_presence_of(:start_time) }
   it { should validate_presence_of(:stop_time) }
-  it { should validate_presence_of(:booked) }
 
   it { should validate_presence_of(:listing_id) }
 end

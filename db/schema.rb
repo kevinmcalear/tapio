@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405153119) do
+ActiveRecord::Schema.define(version: 20140406210018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20140405153119) do
     t.string   "date"
     t.string   "start_time"
     t.string   "stop_time"
-    t.boolean  "booked"
+    t.boolean  "booked",     default: false
     t.integer  "listing_id"
     t.datetime "created_at"
     t.datetime "updated_at"

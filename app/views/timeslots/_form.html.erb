@@ -1,0 +1,25 @@
+<div class="new-timeslots-form">
+  <%= form_for [@vendor, @listing, @timeslot] do |f| %>
+
+  <%= f.label :date %><br/>
+  <%= f.date_field :date %>
+  <br/>
+
+  <%= f.label :start_time %><br/>
+  <%= f.text_field :start_time %>
+  <br/>
+
+  <%= f.label :stop_time %><br/>
+  <%= f.text_field :stop_time %>
+  <br/>
+
+  <%= f.radio_button :booked, true %>
+  <%= f.label :customer, "This is already booked" %>
+  <%= f.radio_button :booked, false %>
+  <%= f.label :vendor, "This is available" %>
+
+  <br/>
+  <br/>
+  <%= f.submit @timeslot.id.nil? ? "Add Slots" : "Update Slots" %>
+  <% end %>
+</div>
