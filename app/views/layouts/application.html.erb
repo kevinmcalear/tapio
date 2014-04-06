@@ -11,12 +11,25 @@
       <nav>
         <ul>
           <li><%= link_to "About",   about_path %></li>
+          
           <% if logged_in? %>
             <li><%= link_to "Account", "#{user_path(session[:user_id])}" %></li>
           <% end %>
+         
+         <% if logged_in? && User.find_by(id: session[:user_id]).type == "Vendor" %>
+            <li><%= link_to "Add A Listing", "#{user_path(session[:user_id])}" %></li>
+            <li><%= link_to "See Your Listings", "#{user_path(session[:user_id])}" %></li>
+          <% end %>
+          
+          <% if logged_in? && User.find_by(id: session[:user_id]).type == "Customer" %>
+            <li><%= link_to "Book A Listing", "#{user_path(session[:user_id])}" %></li>
+            <li><%= link_to "See Your Past Bookings", "#{user_path(session[:user_id])}" %></li>
+          <% end %>
+          
           <li><%= link_to "Contact", contact_path %></li>
+          
           <% if logged_in? %>
-            <li><%= link_to("Log out #{User.find_by(id: session[:user_id]).first_name.capitalize}", "/session", method: "delete") %></li>  
+            <li><%= link_to("Log out #{User.find_by(id: session[:user_id]).first_name.capitalize}", "/session", method: "delete") %></li> 
           <% else %>
             <li><%= link_to "Create Account", new_user_path %></li>
             <li><%= link_to("Log In","/login") %></li>

@@ -9,15 +9,15 @@ class SessionController < ApplicationController
     # find if any user has that email
     user = User.find_by(email: params[:email])
     
-    if user && ( user.authenticate(params[:password]) ) && user.type == "Vendor"
-      session[:user_id] = user.id
-      redirect_to ( '/admin-dash' )
+    # if user && ( user.authenticate(params[:password]) ) && user.type == "Vendor"
+    #   session[:user_id] = user.id
+    #   redirect_to ( '/admin-dash' )
 
-    elsif user && ( user.authenticate(params[:password]) ) && user.type == "Customer" 
-      session[:user_id] = user.id
-      redirect_to ( '/admin-dash')
+    # elsif user && ( user.authenticate(params[:password]) ) && user.type == "Customer" 
+    #   session[:user_id] = user.id
+    #   redirect_to ( '/admin-dash')
 
-    end
+    # end
 
     # if that user exists and it has a password that was sent
     if user && ( user.authenticate(params[:password]) )

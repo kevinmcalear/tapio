@@ -3,5 +3,5 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: :true
   validates :user_name, presence: :true, uniqueness: :true
 
-    has_secure_password
+  has_secure_password
 end

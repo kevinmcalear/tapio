@@ -1,7 +1,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :user do
+  factory :vendor do
     user_name { Faker::Internet.user_name }
     email { Faker::Internet.email }
     first_name { Faker::Name.first_name }
@@ -15,6 +15,6 @@ FactoryGirl.define do
     state { Faker::AddressUS.state }
     address { Faker::Address.street_address(include_secondary = false) }
     zip { Faker::AddressUS.zip_code }
-    # type ""
+    type "Vendor"
   end
 end

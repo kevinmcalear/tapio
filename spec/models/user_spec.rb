@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  before(:each) do
+  before do
      User.create(
       email: "test@test", 
       password: "test", 
