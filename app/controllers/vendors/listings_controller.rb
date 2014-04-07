@@ -1,6 +1,6 @@
-class ListingsController < ApplicationController
+class Vendors::ListingsController < ApplicationController
 
-  before_action :load_customer, except: [:search]
+  before_action :load_vendor, except: [:search]
   before_action :authenticate, :authorize, only: [:show, :edit, :update]
 
   def new
@@ -10,8 +10,8 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     
-    if @listing.update(customer_id: @customer.id)
-      redirect_to customer_listing_path(@customer, @listing)
+    if @listing.update(vendor_id: @vendor.id)
+      redirect_to vendor_listing_path(@vendor, @listing)
     else
       render(:new)
     end
@@ -22,7 +22,7 @@ class ListingsController < ApplicationController
   end
 
   def index
-    @listings = Listing.all
+    @listings = @vendor.listings
   end
 
   def edit
@@ -33,14 +33,14 @@ class ListingsController < ApplicationController
   def destroy
     @listing = Listing.find(params[:id])
     @listing.destroy
-    redirect_to customer_listings_path(@customer)
+    redirect_to vendor_listings_path(@vendor)
   end
 
   def update
     @listing = Listing.find(params[:id])
     @update_worked = @listing.update(listing_params)
     if @update_worked
-      redirect_to customer_listing_path(@customer, @listing)
+      redirect_to vendor_listing_path(@vendor, @listing)
     else
       render(:edit)
     end
@@ -52,8 +52,8 @@ class ListingsController < ApplicationController
   
   private
 
-  def load_customer
-    return @customer = Customer.find(session[:user_id])
+  def load_vendor
+    return @vendor = Vendor.find(params[:vendor_id])
   end
 
   def listing_params
@@ -77,7 +77,7 @@ class ListingsController < ApplicationController
   end
 
   def authorize
-    unless current_user == @customer
+    unless current_user == @vendor
       redirect_to root_path
     end
   end

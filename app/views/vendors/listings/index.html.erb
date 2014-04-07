@@ -1,0 +1,8 @@
+<h1>hi</h1>
+<% @listings.each do |listing| %>
+  <div>
+    <%= link_to listing.name, vendor_listing_path(@vendor, listing) %>
+    <%= link_to "Edit", edit_vendor_listing_path(@vendor, listing) %>
+    <%= button_to "Delete" , vendor_listing_path(@vendor, listing), method: "delete" %>
+  </div>
+<% end %>
