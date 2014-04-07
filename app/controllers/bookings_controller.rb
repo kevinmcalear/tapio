@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
       timeslot_id: @timeslot.id,
       quantity: params[:booking][:quantity],
       cost: (@timeslot.listing.rate.to_i * params[:booking][:quantity].to_i)
-    ) 
+    ) && !@timeslot.booked
       @timeslot.update( booked: !@timeslot.booked )
       redirect_to customer_bookings_path(@customer)
     else
