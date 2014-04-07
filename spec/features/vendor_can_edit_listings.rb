@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe "a vendor can view their listings" do
+describe "a vendor can edit their listings" do
   vendor = FactoryGirl.create(:vendor) 
   first_listing = FactoryGirl.create(:listing, vendor: vendor) 
 
-  it "veiws all listings from a vendor" do
+  it "edits a listing" do
     login(vendor)
 
     click_link "See Your Listings"

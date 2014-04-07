@@ -27,19 +27,21 @@ class TimeslotsController < ApplicationController
   end
 
   def edit
+    @timeslot = Timeslot.find(params[:id])
+    @listing = Listing.find(params[:listing_id])
     @update_worked = true
   end
 
   def destroy
     @listing.destroy
-    redirect_to vendor_listing_path(@vendor, @listing)
+    redirect_to vendor_listing_timeslots_path(@vendor, @listing)
   end
 
   def update
-    @timeslot = Timeslot.fing(params[:id])
-    @update_worked = @timeslot.update(listing_params, listing_id: @listing.id)
+    @timeslot = Timeslot.find(params[:id])
+    @update_worked = @timeslot.update(timeslot_params)
     if @update_worked
-      redirect_to vendor_listing_timeslot_path(@vendor, @listing, @timeslot)
+      redirect_to vendor_listing_timeslots_path(@vendor, @listing)
     else
       render(:edit)
     end
