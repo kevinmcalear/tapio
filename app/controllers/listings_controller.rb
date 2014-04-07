@@ -31,8 +31,9 @@ class ListingsController < ApplicationController
   end
 
   def destroy
+    @listing = Listing.find(params[:id])
     @listing.destroy
-    redirect_to root_path
+    redirect_to vendor_listings_path(@vendor)
   end
 
   def update
