@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
 
-  before_action :load_vendor
+  before_action :load_vendor, except: [:search]
   before_action :authenticate, :authorize, only: [:show, :edit, :update]
 
   def new
@@ -44,6 +44,10 @@ class ListingsController < ApplicationController
     else
       render(:edit)
     end
+  end
+
+  def search
+    @listings = Listing.all
   end
   
   private

@@ -11,28 +11,26 @@ Tapio::Application.routes.draw do
   get  "/login", to: "session#new"           # sign in form
   post "/session", to: "session#create"      # log in
   delete "/session", to: "session#destroy"   # log out
-  # resource :session, only: [:create, :destroy]
+  
 
-  namespace :dashboard do
-    get "/admin",    to: "users#admin" #if user signing in is an admin, they are redirected to this page.
-    get "/vendor", to: "users#vendor"  # vendor landing page
-  end
-
-  resources :users
-
-  resources :listings
-
+  # customer routing
   resources :customers do
     resources :bookings
   end
 
+  # vendor routing
   resources :vendors do
     resources :listings do
       resources :timeslots
     end
   end
 
+  # generic user routing
+  resources :users
 
+  # all listings
+  # resources :listings
+  get "/search", to: "listings#search"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
