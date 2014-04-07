@@ -7,10 +7,13 @@
 <% @timeslots.each do | timeslot | %>
   <li>
     <%= timeslot.date %>
-    <%= hidden_field_tag :timeslot_id, timeslot.id %>
-    
-    <%= select_tag(:quantity, options_for_select([['1 Person', 1], ['2 People', 2], ['3 People', 3], ['4 People', 4], ['5 People', 5]]))%> 
-    <%= link_to "Book", new_customer_booking_path(@customer) %>
+    <%= form_for [@customer, @booking] do |f| %>
+      <%= f.hidden_field :timeslot_id, value: timeslot.id %>
+
+      <%= f.select :quantity, [['1 Person', 1], ['2 People', 2], ['3 People', 3], ['4 People', 4], ['5 People', 5]] %> 
+
+      <%= f.submit "Book" %>
+    <% end %>
   </li>
 <% end %>
 </ul>

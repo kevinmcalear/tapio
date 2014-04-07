@@ -10,9 +10,10 @@ describe "a customer can book a listing's timeslot" do
     click_link timeslot.listing.name
 
     expect(page).to have_content timeslot.listing.name
-    click_link "Book"
 
-    fill_in 
+    click_button "Book"
+
+    expect(page).to have_content timeslot.bookings.last.cost
   end
 
   def login(user)

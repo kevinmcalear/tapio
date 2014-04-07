@@ -29,6 +29,8 @@ Tapio::Application.routes.draw do
   resources :users
 
   # all listings
-  resources :listings
+  resources :listings do
+    resources :bookings
+  end
 
 end

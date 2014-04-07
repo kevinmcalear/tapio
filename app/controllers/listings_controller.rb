@@ -1,10 +1,27 @@
 class ListingsController < ApplicationController
 
-  before_action :load_customer, except: [:search]
+  before_action :load_customer
   before_action :authenticate, :authorize, only: [:show, :index]
 
+  def create
+    @customer = Customer.find(session[:user_id])
+    @timeslot = Timeslot.find(params[:timeslot_id])
+    @booking = Booking.new(
+      customer_id:@customer,
+      timeslot_id: @timeslot,
+      quantity: params[:quantity],
+      cost: (@timeslot.listing.rate.to_i * params[:quantity].to_i)
+    )
+
+    if @booking.save()
+      redirect_to vendor_listing_timeslot_path(@vendor, @listing, @timeslot)
+    else
+      render(:new)
+    end
+  end
 
   def show
+    @booking = Booking.new()
     @listing = Listing.find(params[:id])
     @timeslots = @listing.timeslots
   end
