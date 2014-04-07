@@ -1,4 +1,7 @@
 <h1>hi</h1>
 <% @listings.each do |listing| %>
-  <div><%= link_to listing.name, vendor_listing_path(@vendor, listing) %></div>
+  <div>
+    <%= link_to listing.name, vendor_listing_path(@vendor, listing) %>
+    <%= link_to "Edit", edit_vendor_listing_path(@vendor, listing) %>
+  </div>
 <% end %>

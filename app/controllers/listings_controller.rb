@@ -26,6 +26,7 @@ class ListingsController < ApplicationController
   end
 
   def edit
+    @listing = Listing.find(params[:id])
     @update_worked = true
   end
 
@@ -35,8 +36,8 @@ class ListingsController < ApplicationController
   end
 
   def update
-    @listing = Listing.fing(params[:id])
-    @update_worked = @listing.update(listing_params, vendor_id: params[:vendor_id])
+    @listing = Listing.find(params[:id])
+    @update_worked = @listing.update(listing_params)
     if @update_worked
       redirect_to vendor_listing_path(@vendor, @listing)
     else
