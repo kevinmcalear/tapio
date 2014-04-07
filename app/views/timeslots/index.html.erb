@@ -3,6 +3,7 @@
   <div>
     <%= link_to "#{timeslot.date} : #{timeslot.start_time} - #{timeslot.stop_time}" , vendor_listing_timeslot_path(@vendor, @listing, timeslot) %>
      <%= link_to "Edit", edit_vendor_listing_timeslot_path(@vendor, @listing, timeslot) %>
+      <%= button_to "Delete" , vendor_listing_timeslot_path(@vendor, @listing, timeslot), method: "delete" %>
   </div>
 <% end %>
 

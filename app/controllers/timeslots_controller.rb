@@ -33,7 +33,8 @@ class TimeslotsController < ApplicationController
   end
 
   def destroy
-    @listing.destroy
+    @timeslot = Timeslot.find(params[:id])
+    @timeslot.destroy
     redirect_to vendor_listing_timeslots_path(@vendor, @listing)
   end
 
