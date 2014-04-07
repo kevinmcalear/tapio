@@ -14,13 +14,13 @@ class BookingsController < ApplicationController
     @booking = Booking.new()
     
 
-    if @booking.update!(
+    if @booking.update(
       customer_id: @customer.id,
       timeslot_id: @timeslot.id,
       quantity: params[:booking][:quantity],
       cost: (@timeslot.listing.rate.to_i * params[:booking][:quantity].to_i)
     ) 
-
+      @timeslot.update( booked: !@timeslot.booked )
       redirect_to customer_bookings_path(@customer)
     else
       redirect_to listing_path(@timeslot.listing)

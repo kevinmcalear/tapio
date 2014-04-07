@@ -5,8 +5,10 @@
 <h2>Available Timeslots</h2>
 <ul>
 <% @timeslots.each do | timeslot | %>
+  <% if timeslot.booked == false %>
   <li>
     <%= timeslot.date %>
+    Booked: <%= timeslot.booked %>
     <%= form_for [@customer, @booking] do |f| %>
       <%= f.hidden_field :timeslot_id, value: timeslot.id %>
 
@@ -14,6 +16,7 @@
 
       <%= f.submit "Book" %>
     <% end %>
+  <% end %>
   </li>
 <% end %>
 </ul>
