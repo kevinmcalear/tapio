@@ -1,54 +1,18 @@
 class ListingsController < ApplicationController
 
   before_action :load_customer, except: [:search]
-  before_action :authenticate, :authorize, only: [:show, :edit, :update]
+  before_action :authenticate, :authorize, only: [:show, :index]
 
-  def new
-    @listing = Listing.new
-  end
-
-  def create
-    @listing = Listing.new(listing_params)
-    
-    if @listing.update(customer_id: @customer.id)
-      redirect_to customer_listing_path(@customer, @listing)
-    else
-      render(:new)
-    end
-  end
 
   def show
     @listing = Listing.find(params[:id])
+    @timeslots = @listing.timeslots
   end
 
   def index
     @listings = Listing.all
   end
 
-  def edit
-    @listing = Listing.find(params[:id])
-    @update_worked = true
-  end
-
-  def destroy
-    @listing = Listing.find(params[:id])
-    @listing.destroy
-    redirect_to customer_listings_path(@customer)
-  end
-
-  def update
-    @listing = Listing.find(params[:id])
-    @update_worked = @listing.update(listing_params)
-    if @update_worked
-      redirect_to customer_listing_path(@customer, @listing)
-    else
-      render(:edit)
-    end
-  end
-
-  def search
-    @listings = Listing.all
-  end
   
   private
 

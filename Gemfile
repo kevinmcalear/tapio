@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'httparty'
 gem 'json'
 gem "unirest"
+gem "rails-backbone"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -44,6 +45,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'jasmine-rails'
+  gem 'jasmine'
   gem 'simplecov'
   gem 'launchy'
   gem "capybara-webkit"

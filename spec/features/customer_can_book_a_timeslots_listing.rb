@@ -7,8 +7,12 @@ describe "a customer can book a listing's timeslot" do
   it "browses the listings" do
     login(customer)
     click_link "Book A Listing"
-    click_link 
+    click_link timeslot.listing.name
+
     expect(page).to have_content timeslot.listing.name
+    click_link "Book"
+
+    fill_in 
   end
 
   def login(user)

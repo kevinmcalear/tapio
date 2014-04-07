@@ -31,7 +31,4 @@ Tapio::Application.routes.draw do
   # all listings
   resources :listings
 
-  # all listings for search 
-  # **This is hacky and I want to change it**
-  get "/search", to: "listings#search"
 end
