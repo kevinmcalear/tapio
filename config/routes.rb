@@ -15,7 +15,10 @@ Tapio::Application.routes.draw do
 
   # customer routing
   resources :customers do
-    resources :bookings
+    resources :bookings do
+      # stripe checkout
+      resources :charges
+    end
   end
 
   # vendor routing
@@ -32,8 +35,4 @@ Tapio::Application.routes.draw do
   resources :listings do
     resources :bookings
   end
-
-   # stripe checkout
-  resources :charges
-
 end
