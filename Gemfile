@@ -30,8 +30,13 @@ gem 'jbuilder', '~> 1.2'
 gem 'httparty'
 gem 'json'
 gem "unirest"
+
+# Backbone.js for Rails
 gem "rails-backbone"
+
+# Stripe Purchaseing gem
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
