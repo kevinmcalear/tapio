@@ -33,4 +33,7 @@ Tapio::Application.routes.draw do
     resources :bookings
   end
 
+   # stripe checkout
+  resources :charges
+
 end
