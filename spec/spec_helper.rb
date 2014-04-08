@@ -47,4 +47,7 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  # Helper methods for capybara
+  config.include CustomCapybaraHelpers, :type => :feature
 end

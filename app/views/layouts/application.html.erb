@@ -11,13 +11,15 @@
       <nav>
         <ul>
           <li><%= link_to "About",   about_path %></li>
-         
+        
+         <!-- this is the vendor nav options -->
          <% if logged_in? && User.find_by(id: session[:user_id]).type == "Vendor" %>
             <li><%= link_to "Account", vendor_path(session[:user_id]) %></li>
             <li><%= link_to "Add A Listing", new_vendor_listing_path(Vendor.find_by(id: session[:user_id])) %></li>
             <li><%= link_to "See Your Listings", vendor_listings_path(Vendor.find_by(id: session[:user_id])) %></li>
           <% end %>
-          
+
+          <!-- this is the customer nav options -->
           <% if logged_in? && User.find_by(id: session[:user_id]).type == "Customer" %>
             <li><%= link_to "Account", customer_path(session[:user_id]) %></li>
             <li><%= link_to "Book A Listing", listings_path %></li>
@@ -25,7 +27,8 @@
           <% end %>
           
           <li><%= link_to "Contact", contact_path %></li>
-          
+
+          <!-- this is the generic login/out nav options -->
           <% if logged_in? %>
             <li><%= link_to("Log out #{User.find_by(id: session[:user_id]).first_name.capitalize}", "/session", method: "delete") %></li> 
           <% else %>

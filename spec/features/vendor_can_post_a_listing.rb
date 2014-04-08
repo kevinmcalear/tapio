@@ -22,12 +22,4 @@ describe "a vendor can post a listing" do
     expect(page).to have_content "10 People Per Trip"
     expect(page).to have_content "$150.00 Per Person"
   end
-
-  def login(user)
-    visit root_path
-    click_link "Log In"
-    fill_in :email, with: user.email
-    fill_in :password, with: user.password
-    click_button "Log in"
-  end
 end

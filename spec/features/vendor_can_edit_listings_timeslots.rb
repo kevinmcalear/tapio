@@ -19,12 +19,4 @@ describe "a vendor can edit their listing's timeslots" do
  
     expect(page).to have_content "2014-04-23 : #{timeslot.start_time} - #{timeslot.stop_time}"
   end
-
-  def login(user)
-    visit root_path
-    click_link "Log In"
-    fill_in :email, with: user.email
-    fill_in :password, with: user.password
-    click_button "Log in"
-  end
 end
