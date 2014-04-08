@@ -21,7 +21,7 @@
           <% if logged_in? && User.find_by(id: session[:user_id]).type == "Customer" %>
             <li><%= link_to "Account", customer_path(session[:user_id]) %></li>
             <li><%= link_to "Book A Listing", listings_path %></li>
-            <li><%= link_to "See Your Past Bookings", "#{user_path(session[:user_id])}" %></li>
+            <li><%= link_to "See Your Past Bookings", customer_bookings_path(session[:user_id]) %></li>
           <% end %>
           
           <li><%= link_to "Contact", contact_path %></li>
