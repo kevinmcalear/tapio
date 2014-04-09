@@ -5,7 +5,7 @@
       <div class="page-header">
         <div class="container">
           <div class="page-header-inner clearfix">
-            <h1>Explore Some Hunting - 127 Hunts</h1>
+            <h1>Explore Some Hunting - <%= @listings.count %> Hunts</h1>
           </div>
         </div>
       </div>
@@ -113,18 +113,14 @@
 
                       <!-- SEARCH INPUT : begin -->
                       <p class="search-input">
-                        <input type="text" placeholder="Where do you want to swap?">
+                        <input type="text" placeholder="When Do You Want To Hunt?">
                       </p>
                       <!-- SEARCH INPUT : end -->
 
                       <!-- ARRIVAL DATE, DEPARTURE DATE : begin -->
                       <p class="form-row clearfix">
                         <span class="calendar-input input-left" title="Arrival">
-                          <input type="text" name="arrival" placeholder="Arrival" data-dateformat="m/d/y">
-                          <i class="fa fa-calendar"></i>
-                        </span>
-                        <span class="calendar-input input-right" title="Departure">
-                          <input type="text" name="departure" placeholder="Departure" data-dateformat="m/d/y">
+                          <input type="text" name="arrival" placeholder="Pick A Date" data-dateformat="m/d/y">
                           <i class="fa fa-calendar"></i>
                         </span>
                       </p>
@@ -132,24 +128,14 @@
 
                       <!-- NUMBER OF ADULTS AN CHILDREN : begin -->
                       <p class="form-row clearfix">
-                        <span class="select-box input-left" title="Adults">
-                          <select name="adults" data-placeholder="Adults">
-                            <option>Adults</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                          </select>
-                        </span>
-                        <span class="select-box input-right" title="Children">
-                          <select name="children" data-placeholder="Children">
-                            <option>Children</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                        <span class="select-box input-left" title="sportsmen">
+                          <select name="sportsmen" data-placeholder="How Many Sportsmen?">
+                            <option>Sportsmen</option>
+                            <option value="1">1 Sportsman</option>
+                            <option value="2">2 Sportsmen</option>
+                            <option value="3">3 Sportsmen</option>
+                            <option value="4">4 Sportsmen</option>
+                            <option value="5">5 Sportsmen</option>
                           </select>
                         </span>
                       </p>

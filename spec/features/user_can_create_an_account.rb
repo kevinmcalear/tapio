@@ -5,7 +5,7 @@ describe "a user can sign up" do
 
   it "will sign up a user" do
     visit root_path
-    click_link "Create Account"
+    click_link "Register"
     fill_in "user_user_name", with: user.user_name
     fill_in "user_first_name", with: user.first_name
     fill_in "user_last_name", with: user.last_name

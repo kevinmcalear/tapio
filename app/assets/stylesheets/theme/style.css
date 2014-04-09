@@ -35,6 +35,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 html { height: 100%; font: 16px/1.5em 'Varela Round', sans-serif; }
 body { position: relative; margin: 0; font: inherit; -webkit-font-smoothing: antialiased; -ms-word-wrap: break-word; word-wrap: break-word; }
 body.enable-fixed-header { padding-top: 84px; }
+input { outline: none; }
 
 	/* -------------------------------------------------------------------------
 		TYPOGRAPHY
@@ -203,7 +204,7 @@ body.enable-fixed-header { padding-top: 84px; }
 
 	.content-divider { margin: 24px 0; padding: 0; border: 0; border-top: 1px solid rgba(0, 0, 0, 0.06); }
 	.content-divider.space-medium { margin: 48px 0; }
-	.content-divider.color-rgba(0, 0, 0, 0.06) { border-color: rgba(0, 0, 0, 0.06); }
+	.content-divider { border-color: rgba(0, 0, 0, 0.06); }
 
 	/* -------------------------------------------------------------------------
 		DOWNLOAD CONTAINER
@@ -378,7 +379,7 @@ body.enable-fixed-header { padding-top: 84px; }
 	.timeline-container > li:before { content: ""; }
 	.timeline-container .timeline-item { margin-top: 20px; position: relative; margin-left: 30px; padding: 30px; border-radius: 5px; border-left: 3px solid rgba(0, 0, 0, 0.06); }
 	.timeline-container .timeline-item:first-child { margin-top: 0; }
-	.timeline-container .timeline-item:before { display: block; position: absolute; top: 50px; left: -44px; content: "": line-height: 0; width: 12px; height: 12px; border-radius: 50%; border: 3px solid rgba(0, 0, 0, 0.06); }
+	.timeline-container .timeline-item:before { display: block; position: absolute; top: 50px; left: -44px; content: ""; line-height: 0; width: 12px; height: 12px; border-radius: 50%; border: 3px solid rgba(0, 0, 0, 0.06); }
 	.timeline-container .timeline-item:after { display: block; position: absolute; top: 54px; left: -25px; content: ""; width: 17px; height: 4px; line-height: 0; border-radius: 2px; }
 	.timeline-item-label { position: absolute; top: 45px; left: -68px; }
 	.timeline-item-title { margin: 0; font-size: 1.6em; }
@@ -527,10 +528,13 @@ body.enable-fixed-header { padding-top: 84px; }
 	.banner-search form > * { margin: 10px 0 10px 5px; }
 	.banner-search form > *:first-child { margin-left: 0; }
 	.banner-search input { width: 100%; }
-	.banner-search .search-input { display: inline-block; width: 100%; max-width: 250px; }
-	.banner-search .calendar-input { max-width: 150px; text-align: left; }
-	.banner-search .select-box { max-width: 120px; text-align: left; }
+	.banner-search .search-input { display: inline-block; width: 100%; max-width: 340px; }
+	.banner-search .calendar-input { max-width: 180px; text-align: left; }
+	.banner-search .select-box { max-width: 160px; text-align: left; }
 	.banner-search .select-box .select-clone { border: 0; }
+	.banner-search .banner-header { margin: 0 auto; text-align: center; padding-bottom: 100px; }
+	.banner-search .banner-header h1 { color: rgb(119, 193, 55); font-weight: 100; font-size: 600%; text-shadow: 1px 1px rgb(53, 52, 52); }
+	.banner-search .banner-header p { color: white; font-size: 140%; }
 
 
 /* -----------------------------------------------------------------------------
@@ -659,7 +663,7 @@ body.enable-fixed-header { padding-top: 84px; }
 	.properties-search-basic { padding: 20px 30px 30px 30px; }
 	.properties-search-type .radio-input { margin: 3px; }
 	.properties-search .form-row { margin-top: 10px; }
-	.properties-search .input-left { float: left; width: 49%; }
+	/*.properties-search .input-left { float: left; width: 49%; }*/
 	.properties-search .input-right { float: right; width: 49%; }
 	.properties-search .form-divider { margin: 0 30px; border: 0; border-top: 1px solid rgba(0, 0, 0, 0.06); }
 
@@ -1118,7 +1122,7 @@ body.enable-fixed-header { padding-top: 84px; }
 	.property-list .property:first-child,
 	.property-list.layout-grid .property:first-child { margin-top: 0; }
 	.property-list .property-thumb,
-	.property-list.layout-grid .property-thumb { display: inline-block; position: relative; left; auto; top: auto; width: 100%; max-width: 250px; height: auto; border-radius: 5px; overflow: auto; }
+	.property-list.layout-grid .property-thumb { display: inline-block; position: relative; left: auto; top: auto; width: 100%; max-width: 250px; height: auto; border-radius: 5px; overflow: auto; }
 	.property-list .property-thumb .overlay,
 	.property-list.layout-grid .property-thumb .overlay { border-radius: 5px; }
 	.property-list .property-thumb img,

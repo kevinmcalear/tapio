@@ -1,22 +1,280 @@
+<!-- CORE : begin -->
+    <div id="core" class="page-property-details">
+
+      <!-- PAGE HEADER : begin -->
+      <div class="page-header">
+        <div class="container">
+          <div class="page-header-inner clearfix">
+            <h1><%= @listing.name %> - <%= @listing.timeslots.where(booked: 'false').count %> Openings</h1>
+            <ul class="custom-list breadcrumbs">
+              <li><a href="index.html">Home</a> / </li>
+              <li><a href="properties-listing-grid.html">Search Results</a> /</li>
+              <li><a href="property-details-book.html">Property Details</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- PAGE HEADER : end -->
+
+      <!-- MAIN WRAPPER : begin -->
+      <div class="main-wrapper-container">
+        <div class="container">
+          <div id="main-wrapper">
+            <div class="row">
+              <div class="col-md-8 col-md-push-4">
+
+                <!-- PROPERTY DETAILS : begin -->
+                <div class="property-details">
+
+                  <!-- PROPERTY IMAGES : begin -->
+                  <div class="property-images">
+                    <div class="image-list">
+                      <div class="image"><img src="dummies/property_01.jpg" alt="Short photo description should go right here"></div>
+                    </div>
+                    <div class="images-footer">
+                      <div class="images-footer-inner">
+                        <div class="image-description"></div>
+                        <div class="image-counter"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- PROPERTY IMAGES : end -->
+
+                  <div class="row">
+                    <div class="col-md-8">
+
+                      <!-- PROPERTY DESCRIPTION : begin -->
+                      <div class="property-description">
+
+                        <!-- DESCRIPTION TEXT : begin -->
+                        <div class="description-text">
+                          <h4>Object Description</h4>
+                          <p><%= @listing.description %></p>
+                        </div>
+                        <!-- DESCRIPTION TEXT : end -->
+
+                        <!-- TABS : begin -->
+                        <div class="tabs-container">
+                          <ul class="tab-title-list">
+                            <li class="tab-title"><a href="#reviews">Reviews</a></li>
+                          </ul>
+                          <ul class="tab-content-list">
+
+                           
+
+                            <!-- COMMENTS TAB : begin -->
+                            <li class="tab-content">
+
+                              <div class="comments">
+                                <ul class="custom-list comment-list">
+
+                                  <!-- COMMENT 1 : begin -->
+                                  <li class="comment">
+                                    <div class="author"><strong>Jenny &amp; Tom </strong> - <span class="date">Nov. 14, 2013</span></div>
+                                    <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+                                    <div class="review">
+                                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi.</p>
+                                    </div>
+                                  </li>
+                                  <!-- COMMENT 1 : end -->
+
+                                  <!-- COMMENT 2 : begin -->
+                                  <li class="comment">
+                                    <div class="author"><strong>Tom &amp; Jerry </strong> - <span class="date">Nov. 4, 2013</span></div>
+                                    <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                    <div class="review">
+                                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi.</p>
+                                    </div>
+                                  </li>
+                                  <!-- COMMENT 2 : end -->
+
+                                  <!-- COMMENT 3 : begin -->
+                                  <li class="comment">
+                                    <div class="author"><strong>Kate </strong> - <span class="date">Nov. 1, 2013</span></div>
+                                    <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                                    <div class="review">
+                                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi.</p>
+                                    </div>
+                                  </li>
+                                  <!-- COMMENT 3 : end -->
+
+                                </ul>
+                              </div>
+
+                            </li>
+                            <!-- COMMENTS TAB : end -->
+
+                          </ul>
+                        </div>
+                        <!-- TABS : end -->
+
+                      </div>
+                      <!-- PROPERTY DESCRIPTION : end -->
+
+                    </div>
+                    <div class="col-md-4">
+
+                      <!-- PROPERTY PANEL : begin -->
+                      <div class="property-panel">
+
+                        <!-- OBJECT PRICE : begin -->
+                        <div class="panel-item object-price">
+                          <h4 class="panel-item-title">Price</h4>
+                          <p class="price"><strong>$<%= @listing.rate %></strong>/ sportsman</p>
+                        </div>
+                        <!-- OBJECT PRICE : end -->
+
+                        <!-- OBJECT RATING : begin -->
+                        <div class="panel-item object-rating">
+                          <h4 class="panel-item-title">Hunting Score</h4>
+                          <p class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></p>
+                        </div>
+                        <!-- OBJECT RATING : end -->
+
+                        <!-- BOOK FORM : begin -->
+                        <div class="panel-item book-form">
+                          <h4 class="panel-item-title">Book Now</h4>
+                          
+                          <% @timeslots.each do | timeslot | %>
+                            <% if timeslot.booked == false %>
+                            <li>
+                              <%= timeslot.date %>
+                              Booked: <%= timeslot.booked %>
+                              <%= form_for [@customer, @booking] do |f| %>
+                                <%= f.hidden_field :timeslot_id, value: timeslot.id %>
+
+                                <%= f.select :quantity, [['1 Person', 1], ['2 People', 2], ['3 People', 3], ['4 People', 4], ['5 People', 5]] %> 
+
+                                <%= f.submit "Book" %>
+                              <% end %>
+                            <% end %>
+                            </li>
+                          <% end %>
+                        </div>
+                        <!-- BOOK FORM : end -->
+
+                      </div>
+                      <!-- PROPERTY PANEL : end -->
+
+                    </div>
+                  </div>
+
+                </div>
+                <!-- PROPERTY DETAILS : end -->
+
+              </div>
+              <div class="col-md-4 col-md-pull-8">
+
+                <!-- PROPERTY LOCATION DETAILS : begin -->
+                <aside class="property-location-details">
+                  <h3 class="property-location-title">Location &amp; Details</h3>
+
+                  <!-- PROPERTY MAP : begin -->
+                  <div class="property-map">
+                    <iframe></iframe>
+                    <a href="#" class="map-btn"><i class="fa fa-search-plus"></i></a>
+                  </div>
+                  <!-- PROPERTY MAP : end -->
+
+                  <!-- PROPERTY INFO : begin -->
+                  <div class="property-info">
+                    <h4 class="property-info-title">Details</h4>
+
+                    <!-- ADDRESS : begin -->
+                    <div class="toggle-container property-address">
+                      <h5 class="toggle-title">Address</h5>
+                      <div class="toggle-content">
+
+                        <p><%= @listing.address %><br>
+                        <%= @listing.city %>, <%= @listing.state %> 
+                        <%= @listing.zip %></p>
+
+                      </div>
+                    </div>
+                    <!-- ADDRESS : end -->
+
+                    <!-- ACCOMODATION : begin -->
+                    <div class="toggle-container property-accomodation">
+                      <h5 class="toggle-title">Accomodation</h5>
+                      <div class="toggle-content">
+
+                        <ul class="custom-list">
+                          <li>Beds <strong>2</strong></li>
+                          <li>People allowed <strong>4</strong></li>
+                          <li>Bathrooms <strong>1</strong></li>
+                          <li>Year built <strong>2006</strong></li>
+                        </ul>
+
+                      </div>
+                    </div>
+                    <!-- ACCOMODATION : end -->
+
+                    <!-- ADDITIONAL : begin -->
+                    <div class="toggle-container property-additional">
+                      <h5 class="toggle-title">Additional Information</h5>
+                      <div class="toggle-content">
+
+                        <ul class="custom-list check-list">
+                          <li>Air Conditioning</li>
+                          <li>Garden</li>
+                          <li>Swimming Pool</li>
+                          <li>Sea View</li>
+                          <li>Pets Allowed</li>
+                          <li>Parking</li>
+                          <li>Internet Connection</li>
+                          <li>Radio/TV</li>
+                          <li>Separate Toilet</li>
+                          <li>Children Friendly</li>
+                        </ul>
+
+                      </div>
+                    </div>
+                    <!-- ADDITIONAL : end -->
+
+                  </div>
+                  <!-- PROPERTY INFO : end -->
+
+                </aside>
+                <!-- PROPERTY LOCATION DETAILS : end -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- MAIN WRAPPER : end -->
+
+    </div>
+    <!-- CORE : end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h1>Listing</h1>
 <div><%= @listing.name %></div>
 <div><%= @listing.quantity %> People Per Trip</div>
 <div><%= number_to_currency(@listing.rate) %> Per Person</div>
 <h2>Available Timeslots</h2>
 <ul>
-<% @timeslots.each do | timeslot | %>
-  <% if timeslot.booked == false %>
-  <li>
-    <%= timeslot.date %>
-    Booked: <%= timeslot.booked %>
-    <%= form_for [@customer, @booking] do |f| %>
-      <%= f.hidden_field :timeslot_id, value: timeslot.id %>
 
-      <%= f.select :quantity, [['1 Person', 1], ['2 People', 2], ['3 People', 3], ['4 People', 4], ['5 People', 5]] %> 
-
-      <%= f.submit "Book" %>
-    <% end %>
-  <% end %>
-  </li>
-<% end %>
 </ul>

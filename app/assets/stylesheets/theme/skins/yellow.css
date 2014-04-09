@@ -307,6 +307,7 @@ a:hover { border-color: #ffa200; }
 	/* HEADER LOGIN */
 	.header-login .login-toggle {  }
 	.header-login .login-toggle:hover {  }
+	.header-login button a:hover { border-bottom: none; color: white; }
 
 	/* HEADER ADD OFFER */
 	.header-add-offer > a:hover { color: #ffa200; background-color: #FFF;
@@ -319,7 +320,7 @@ a:hover { border-color: #ffa200; }
 		-webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,0.3);
 		box-shadow: inset 0 -1px 0 rgba(0,0,0,0.3);
 	}
-
+	.header-register button a:hover { border-bottom: none; color: white; }
 
 /* -----------------------------------------------------------------------------
 
@@ -373,9 +374,9 @@ a:hover { border-color: #ffa200; }
 	.page-about-us .page-header { /*background-image: url( 'app/assets/images/dummies/page_header_01.jpg' );*/background: lightgrey; }
 	.page-contact-us .page-header,
 	.page-privacy-policy .page-header,
-	.page-terms-conditions .page-header { background-image: url( 'app/assets/images/dummies/page_header_02.jpg' ); }
-	.page-search-results .page-header { /*background-image: url( 'app/assets/images/dummies/page_header_03.jpg' );*/background: rgb(180, 180, 180);}
-	.page-property-details .page-header { background-image: url( 'app/assets/images/dummies/page_header_04.jpg' ); }
+	.page-terms-conditions .page-header { /*background-image: url( 'app/assets/images/dummies/page_header_02.jpg' );*/ background: rgb(180, 180, 180); }
+	.page-search-results .page-header { /*background-image: url( 'app/assets/images/dummies/page_header_03.jpg' );*/ background: rgb(180, 180, 180); }
+	.page-property-details .page-header { /*background-image: url( 'app/assets/images/dummies/page_header_04.jpg' );*/ background: rgb(180, 180, 180); }
 
 	/* -------------------------------------------------------------------------
 		CONTENT SECTION

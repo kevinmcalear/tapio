@@ -1,12 +1,12 @@
-<div class="journey_wrapper">
-  <h2 class="saved_headline"><%= @customer.first_name %>'s Saved Journeys</h2>
+<div>
+  <h2 class="saved_headline"><%= @customer.first_name %>'s Account</h2>
   <%= link_to "Edit My Info", edit_customer_path(@customer), class: "edit-account" %>
 
 <%= form_tag customer_path(@customer), method: "delete", class: "delete-account" do %>
 <%= submit_tag("Delete My Account") %>
 <% end %>
-  <span class="journey_title">
-  <ul id="customer_journey_list" class="journey-item">
+  <span>
+  <ul>
     <li><%= @customer.type %></li>
     <li><%= @customer.user_name %></li>
     <li><%= @customer.profile_pic_url %></li>
