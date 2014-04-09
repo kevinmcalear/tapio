@@ -8,8 +8,8 @@
             <h1><%= @listing.name %> - <%= @listing.timeslots.where(booked: 'false').count %> Openings</h1>
             <ul class="custom-list breadcrumbs">
               <li><a href="index.html">Home</a> / </li>
-              <li><a href="properties-listing-grid.html">Search Results</a> /</li>
-              <li><a href="property-details-book.html">Property Details</a></li>
+              <li><a href="/listings">Search Results</a> /</li>
+              <li><a href="/listings/<%= @listing.id %>">Property Details</a></li>
             </ul>
           </div>
         </div>
@@ -29,7 +29,7 @@
                   <!-- PROPERTY IMAGES : begin -->
                   <div class="property-images">
                     <div class="image-list">
-                      <div class="image"><img src="dummies/property_01.jpg" alt="Short photo description should go right here"></div>
+                      <div class="image"><img src="<%= @listing.listing_pic_url %>" alt="Short photo description should go right here"></div>
                     </div>
                     <div class="images-footer">
                       <div class="images-footer-inner">
@@ -63,7 +63,7 @@
                            
 
                             <!-- COMMENTS TAB : begin -->
-                            <li class="tab-content">
+                            <li class="tab-content active" style="display: list-item;">
 
                               <div class="comments">
                                 <ul class="custom-list comment-list">
@@ -171,8 +171,7 @@
 
                   <!-- PROPERTY MAP : begin -->
                   <div class="property-map">
-                    <iframe></iframe>
-                    <a href="#" class="map-btn"><i class="fa fa-search-plus"></i></a>
+                    <iframe src="https://maps.google.com/maps?q=38.974749, -80.466295&amp;num=1&amp;ie=UTF8&amp;ll=38.974749, -80.466295&amp;spn=0.007843,0.013937&amp;t=m&amp;z=14&amp;output=embed"></iframe>
                   </div>
                   <!-- PROPERTY MAP : end -->
 
@@ -193,38 +192,15 @@
                     </div>
                     <!-- ADDRESS : end -->
 
-                    <!-- ACCOMODATION : begin -->
-                    <div class="toggle-container property-accomodation">
-                      <h5 class="toggle-title">Accomodation</h5>
-                      <div class="toggle-content">
-
-                        <ul class="custom-list">
-                          <li>Beds <strong>2</strong></li>
-                          <li>People allowed <strong>4</strong></li>
-                          <li>Bathrooms <strong>1</strong></li>
-                          <li>Year built <strong>2006</strong></li>
-                        </ul>
-
-                      </div>
-                    </div>
-                    <!-- ACCOMODATION : end -->
-
                     <!-- ADDITIONAL : begin -->
-                    <div class="toggle-container property-additional">
+                    <div class="toggle-container property-additional closed">
                       <h5 class="toggle-title">Additional Information</h5>
-                      <div class="toggle-content">
+                      <div class="toggle-content" style="display: none;">
 
                         <ul class="custom-list check-list">
-                          <li>Air Conditioning</li>
-                          <li>Garden</li>
-                          <li>Swimming Pool</li>
-                          <li>Sea View</li>
-                          <li>Pets Allowed</li>
-                          <li>Parking</li>
-                          <li>Internet Connection</li>
-                          <li>Radio/TV</li>
-                          <li>Separate Toilet</li>
-                          <li>Children Friendly</li>
+                          <li>Free Pictures</li>
+                          <li>Close Restaurants </li>
+                          <li>Supplies Included</li>
                         </ul>
 
                       </div>
@@ -246,35 +222,3 @@
 
     </div>
     <!-- CORE : end -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h1>Listing</h1>
-<div><%= @listing.name %></div>
-<div><%= @listing.quantity %> People Per Trip</div>
-<div><%= number_to_currency(@listing.rate) %> Per Person</div>
-<h2>Available Timeslots</h2>
-<ul>
-
-</ul>

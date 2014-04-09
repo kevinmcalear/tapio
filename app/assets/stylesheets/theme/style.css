@@ -706,9 +706,9 @@ input { outline: none; }
 	.property-details { padding: 30px 30px 60px 0; }
 	.property-details .property-images { position: relative; margin-bottom: 30px; border-radius: 7px 7px 0 0; }
 	.property-details .property-images .owl-wrapper-outer { border-radius: 7px 7px 0 0; }
-	.property-details .property-images img { display: block; border-radius: 7px 7px 0 0; }
+	.property-details .property-images img { display: block; border-radius: 7px 7px 0 0; width: 100%; height: 450px;}
 	.property-details .property-images .images-footer { position: absolute; left: 0; right: 0; bottom: 0; }
-	.property-details .property-images .images-footer-inner { position: relative; margin-right: 82px; padding: 0 60px 0 15px; height: 40px; line-height: 40px; }
+	.property-details .property-images .images-footer-inner { position: relative; /*margin-right: 82px;*/ padding: 0 60px 0 15px; height: 40px; line-height: 40px; }
 	.property-details .property-images .image-counter { position: absolute; top: 0; right: 10px; }
 	.property-details .property-images .prev-btn,
 	.property-details .property-images .next-btn { display: block; position: absolute; bottom: 0; right: 0; width: 40px; height: 40px; cursor: pointer; }
