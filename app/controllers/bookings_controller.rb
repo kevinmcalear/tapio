@@ -1,7 +1,4 @@
 class BookingsController < ApplicationController
-
-  # before_action :load_listing
-  # before_action :load_vendor
   before_action :authenticate, :authorize, only: [:show, :edit, :update]
 
   def new
@@ -59,15 +56,7 @@ class BookingsController < ApplicationController
   end
   
   private
-
-  # def load_vendor
-  #   return @vendor = Vendor.find(params[:vendor_id])
-  # end
-
-  # def load_listing
-  #   return @listing = Listing.find(params[:listing_id])
-  # end
-
+  
   def authenticate
     unless logged_in?
       redirect_to root_path
