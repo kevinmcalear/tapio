@@ -1,44 +1,285 @@
-<div class="new-listing-form">
-  <%= form_for [@vendor, @listing] do |f| %>
+<section class="content-section">
+  <div class="container">
+    <div class="tabs-container">
+      <ul class="tab-title-list">
+        <li class="tab-title active"><a href="#basic-info">Basic Info</a></li>
+        <li class="tab-title"><a href="#availability">Availability</a></li>
+        <li class="tab-title"><a href="#extras">Extras</a></li>
+      </ul>
+      <ul class="tab-content-list">
+        <li class="tab-content active" id="basic-info" style="display: block;">
+          <div class="row">
+            <div class="col-sm-4">
 
-  <%= f.label :name %><br/>
-  <%= f.text_field :name %>
-  <br/>
+              <h2>Fill Out Your New Place</h2>
+              <h5>Add in all the basics.</h5>
+              <p>We need to know where, your place is at, what it looks like, and what people can do there.</p>
 
-  <%= f.label :listing_pic_url %><br/>
-  <%= f.text_field :listing_pic_url %>
-  <br/>
+            </div>
+            <div class="col-sm-7">
 
-  <%= f.label :description %><br/>
-  <%= f.text_area :description %>
-  <br/>
+              <div class="contact-form-container">
 
-  <%= f.label :address %><br/>
-  <%= f.text_field :address %>
-  <br/>
+                <h5>Send Us a Message</h5>
+                <form id="contact-form" action="contact-form.php" method="post" class="default-form">
 
-  <%= f.label :city %><br/>
-  <%= f.text_field :city %>
-  <br/>
+                  <!-- FORM VALIDATION ERROR MESSAGE : begin -->
+                  <p class="alert-message warning validation" style="display: none;"><i class="ico fa fa-exclamation-circle"></i><strong>All fields are required!</strong></p>
+                  <!-- FORM VALIDATION ERROR MESSAGE : end -->
 
-  <%= f.label :state %><br/>
-  <%= f.text_field :state %>
-  <br/>
+                  <!-- SENDING REQUEST ERROR MESSAGE : begin -->
+                  <p class="alert-message warning request" style="display: none;"><i class="ico fa fa-exclamation-circle"></i><strong>Form not sent!</strong><br>There was a connection problem. Try again later.</p>
+                  <!-- SENDING REQUEST ERROR MESSAGE : end -->
 
-  <%= f.label :zip %><br/>
-  <%= f.text_field :zip %>
-  <br/>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <p><input type="text" id="field_name" name="field_name" class="required" placeholder="Name"></p>
+                    </div>
+                    <div class="col-sm-6">
+                      <p><input type="text" id="field_email" name="field_email" class="required email" placeholder="Email"></p>
+                      <p class="contact-hp-email">
+                        <input type="text" id="field_email_hp" name="field_email_hp">
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <p><input type="text" id="field_phone" name="field_phone" class="required" placeholder="Phone"></p>
+                    </div>
+                    <div class="col-sm-6">
+                      <p>
+                        <span class="select-box">
+                          <select id="field_subject" name="field_subject" class="required" data-placeholder="Subject">
+                            <option>Subject</option>
+                            <option value="lorem-ipsum">Lorem Ipsum</option>
+                            <option value="dolor-sit">Dolor Sit</option>
+                          </select>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                  <p><textarea id="field_message" name="field_message" class="required" placeholder="How can we help you?"></textarea></p>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <p class="form-note">All fields are required</p>
+                    </div>
+                    <div class="col-sm-6">
+                      <p class="form-submit">
+                        <button class="button submit-btn" data-loading-label="Sending..."><i class="fa fa-toggle-right"></i> Next</button></p>
+                      </div>
+                    </div>
 
-  <%= f.label :rate %><br/>
-  <%= f.text_field :rate %>
-  <br/>
+                  </form>
+                </li>
 
-  <%= f.label :quantity %><br/>
-  <%= f.text_field :quantity %>
-  <br/>
 
-  <br/>
-  <br/>
-  <%= f.submit @listing.id.nil? ? "Add Listing" : "Update Listing" %>
-  <% end %>
-</div>
+                <li class="tab-content" id="availability" style="display: none;">
+                  <div class="row">
+                    <div class="col-sm-4">
+
+                      <h2>Choose Your Availablity</h2>
+                      <h5>Tell us when people can use it.</h5>
+                      <p>Choose dates and times people can book with you.</p>
+
+                    </div>
+                    <div class="col-sm-7">
+
+                      <div class="contact-form-container">
+
+                        <h5>Pick Your Dates Here.</h5>
+                        <form id="contact-form" action="contact-form.php" method="post" class="default-form">
+
+                          <!-- FORM VALIDATION ERROR MESSAGE : begin -->
+                          <p class="alert-message warning validation" style="display: none;"><i class="ico fa fa-exclamation-circle"></i><strong>All fields are required!</strong></p>
+                          <!-- FORM VALIDATION ERROR MESSAGE : end -->
+
+                          <!-- SENDING REQUEST ERROR MESSAGE : begin -->
+                          <p class="alert-message warning request" style="display: none;"><i class="ico fa fa-exclamation-circle"></i><strong>Form not sent!</strong><br>There was a connection problem. Try again later.</p>
+                          <!-- SENDING REQUEST ERROR MESSAGE : end -->
+
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <p><div class="datepicker"></div></p>
+                            </div>
+                            <div class="col-sm-6">
+                              <p><input type="text" id="field_email" name="field_email" class="required email" placeholder="Email"></p>
+                              <p class="contact-hp-email">
+                                <input type="text" id="field_email_hp" name="field_email_hp">
+                              </p>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <p><input type="text" id="field_phone" name="field_phone" class="required" placeholder="Phone"></p>
+                            </div>
+                            <div class="col-sm-6">
+                              <p>
+                                <span class="select-box">
+                                  <select id="field_subject" name="field_subject" class="required" data-placeholder="Subject">
+                                    <option>Subject</option>
+                                    <option value="lorem-ipsum">Lorem Ipsum</option>
+                                    <option value="dolor-sit">Dolor Sit</option>
+                                  </select>
+                                </span>
+                              </p>
+                            </div>
+                          </div>
+                          <p><textarea id="field_message" name="field_message" class="required" placeholder="How can we help you?"></textarea></p>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <p class="form-note">All fields are required</p>
+                            </div>
+                            <div class="col-sm-6">
+                              <p class="form-submit">
+                                <button class="button submit-btn" data-loading-label="Sending..."><i class="fa fa-envelope"></i> Next</button></p>
+                              </div>
+                            </div>
+
+                          </form>
+                        </li>
+
+
+
+
+
+
+
+                        <li class="tab-content" id="extras" style="display: none;">
+                          <div class="row">
+                            <div class="col-sm-4">
+
+                              <h2>Add In Any Perks Or Extras</h2>
+                              <h5>People Like Free Stuff</h5>
+                              <p>Add in things like included equipment, rewards, deals, etc.</p>
+
+                            </div>
+                            <div class="col-sm-7">
+
+                              <div class="contact-form-container">
+
+                                <h5>Send Us a Message</h5>
+                                <form id="contact-form" action="contact-form.php" method="post" class="default-form">
+
+                                  <!-- FORM VALIDATION ERROR MESSAGE : begin -->
+                                  <p class="alert-message warning validation" style="display: none;"><i class="ico fa fa-exclamation-circle"></i><strong>All fields are required!</strong></p>
+                                  <!-- FORM VALIDATION ERROR MESSAGE : end -->
+
+                                  <!-- SENDING REQUEST ERROR MESSAGE : begin -->
+                                  <p class="alert-message warning request" style="display: none;"><i class="ico fa fa-exclamation-circle"></i><strong>Form not sent!</strong><br>There was a connection problem. Try again later.</p>
+                                  <!-- SENDING REQUEST ERROR MESSAGE : end -->
+
+                                  <div class="row">
+                                    <%= form_for [@vendor, @listing] do |f| %>
+                                    <div class="col-sm-6">
+                                      <p class="default-form">
+                                        <!-- CHECKBOXES : begin -->
+                                        <span class="checkbox-input">
+                                          <input id="dummy-checkbox" type="checkbox" name="">
+                                          <label for="dummy-checkbox">Checkbox</label>
+                                        </span>
+                                        <span class="checkbox-input active">
+                                          <input id="dummy-checkbox2" type="checkbox" name="" checked="checked">
+                                          <label for="dummy-checkbox2">Checkbox</label>
+                                        </span>
+                                        <!-- CHECKBOXES : end -->
+
+                                      </p>
+                                      <p class="default-form">
+
+                                        <!-- RADIO INPUTS : begin -->
+                                        <span class="radio-input active">
+                                          <input id="dummy-radio1" type="radio" name="dummy-radio-group" checked="checked">
+                                          <label for="dummy-radio1">Radio 1</label>
+                                        </span>
+                                        <span class="radio-input">
+                                          <input id="dummy-radio2" type="radio" name="dummy-radio-group">
+                                          <label for="dummy-radio2">Radio 2</label>
+                                        </span>
+                                        <!-- RADIO INPUTS : end -->
+
+                                      </p>
+                                    </div>
+                                    <p><textarea id="field_message" name="field_message" class="required" placeholder="How can we help you?"></textarea></p>
+                                    <div class="row">
+                                      <div class="col-sm-6">
+                                        <p class="form-note">All fields are required</p>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <p class="form-submit">
+                                          <%= f.submit @listing.id.nil? ? "Add Listing" : "Update Listing" %>
+                                          <button class="button submit-btn" data-loading-label="Sending..."><i class="fa fa-envelope"></i> Next</button></p>
+                                        </div>
+                                        <% end %>
+                                      </div>
+
+                                    </form>
+                                  </li>
+
+
+
+
+
+
+
+
+
+
+                                </ul>
+                              </div>
+
+                            </div>
+                          </div>
+
+                        </div>
+                      </section>
+
+                      <div class="new-listing-form">
+                        <%= form_for [@vendor, @listing] do |f| %>
+
+                        <%= f.label :name %><br/>
+                        <%= f.text_field :name %>
+                        <br/>
+
+                        <%= f.label :listing_pic_url %><br/>
+                        <%= f.text_field :listing_pic_url %>
+                        <br/>
+
+                        <%= f.label :description %><br/>
+                        <%= f.text_area :description %>
+                        <br/>
+
+                        <%= f.label :address %><br/>
+                        <%= f.text_field :address %>
+                        <br/>
+
+                        <%= f.label :city %><br/>
+                        <%= f.text_field :city %>
+                        <br/>
+
+                        <%= f.label :state %><br/>
+                        <%= f.text_field :state %>
+                        <br/>
+
+                        <%= f.label :zip %><br/>
+                        <%= f.text_field :zip %>
+                        <br/>
+
+                        <%= f.label :rate %><br/>
+                        <%= f.text_field :rate %>
+                        <br/>
+
+                        <%= f.label :quantity %><br/>
+                        <%= f.text_field :quantity %>
+                        <br/>
+
+                        <br/>
+                        <br/>
+                        <%= f.submit @listing.id.nil? ? "Add Listing" : "Update Listing" %>
+                        <% end %>
+                      </div>
+
+                      <script type="text/javascript">
+                        $(document).ready(function() {
+                          $('.datepicker').datepicker();
+                        });
+                      </script>

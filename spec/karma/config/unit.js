@@ -14,7 +14,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      "/usr/local/var/rbenv/versions/2.1.0/lib/ruby/gems/2.1.0/gems/turbolinks-2.2.1/lib/assets/javascripts/turbolinks.*",
+      APPLICATION_SPEC,
       'app/assets/javascripts/angular/*/*.{coffee,js}',
       'spec/javascripts/**/*_spec.{coffee,js}'
     ],

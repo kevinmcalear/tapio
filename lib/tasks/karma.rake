@@ -14,7 +14,7 @@ namespace :karma  do
       f.write unit_js(application_spec_files)
       f.flush
 
-      system "karma #{command} #{f.path} #{args}"
+      system "./node_modules/karma/bin/karma #{command} #{f.path} #{args}"
     end
   end
 
@@ -28,4 +28,4 @@ namespace :karma  do
     unit_js = File.open('spec/karma/config/unit.js', 'r').read
     unit_js.gsub "APPLICATION_SPEC", "\"#{files.join("\",\n\"")}\""
   end
-endNot Found
+end

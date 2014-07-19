@@ -34,6 +34,9 @@ gem "unirest"
 # Backbone.js for Rails
 # gem "rails-backbone"
 
+# Login stuff
+# gem 'devise'
+
 # Stripe Purchaseing gem
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
@@ -75,7 +78,7 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 
 # Angluar Stuff
-source 'https://rails-assets.org'
+# source 'https://rails-assets.org'
 gem "rails-assets-angular"
 
 group :development, :test do
