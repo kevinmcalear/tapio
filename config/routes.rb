@@ -11,7 +11,7 @@ Tapio::Application.routes.draw do
   get  "/login", to: "session#new"           # sign in form
   post "/session", to: "session#create"      # log in
   delete "/session", to: "session#destroy"   # log out
-  
+
 
   # customer routing
   resources :customers do

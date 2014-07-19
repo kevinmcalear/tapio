@@ -32,7 +32,7 @@ gem 'json'
 gem "unirest"
 
 # Backbone.js for Rails
-gem "rails-backbone"
+# gem "rails-backbone"
 
 # Stripe Purchaseing gem
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
@@ -57,7 +57,7 @@ group :development, :test do
   gem "capybara-webkit"
 end
 
-group :production do 
+group :production do
   gem 'rails_12factor'
 end
 
@@ -72,3 +72,12 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+
+# Angluar Stuff
+source 'https://rails-assets.org'
+gem "rails-assets-angular"
+
+group :development, :test do
+  gem 'rails-assets-angular-mocks'
+end

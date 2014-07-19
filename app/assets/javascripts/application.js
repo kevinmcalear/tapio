@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
+//= require angular
 //= require_tree .
