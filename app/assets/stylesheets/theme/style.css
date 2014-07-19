@@ -145,6 +145,8 @@ input { outline: none; }
 	.ui-datepicker-calendar td { padding: 0; border-radius: 3px; text-align: center; border: 0; }
 	.ui-datepicker-calendar td a { display: block; padding: 6px 0; border-radius: 3px; border: 0; }
 	.ui-datepicker-calendar .ui-datepicker-unselectable { padding: 6px 0; }
+	.ui-state-active { background: #ffa200 !important; color: white !important;}
+	.ui-state-highlight a { background: rgba(255, 162, 0, 0.45); color: #ffa200;}
 
 	/* -------------------------------------------------------------------------
 		UTILITY
