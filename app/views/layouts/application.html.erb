@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 <head>
   <title>Tapio</title>
   <!-- Font-Awesome Icons -->
@@ -109,7 +109,7 @@
                 <ul>
 
                   <li><%= link_to "About",   about_path %></li>
-        
+
                  <!-- this is the vendor nav options -->
                  <% if logged_in? && User.find_by(id: session[:user_id]).type == "Vendor" %>
                     <li><%= link_to "Account", vendor_path(session[:user_id]) %></li>
@@ -123,7 +123,7 @@
                     <li><%= link_to "Book A Listing", listings_path %></li>
                     <li><%= link_to "See Your Past Bookings", customer_bookings_path(session[:user_id]) %></li>
                   <% end %>
-                  
+
                   <li><%= link_to "Contact", contact_path %></li>
 
                 </ul>
@@ -134,13 +134,13 @@
             <!-- HEADER TOOLS : begin -->
             <div class="header-tools">
 
-              
+
               <% if logged_in? %>
               <div class="header-login">
                 <button class="login-toggle header-btn"><i class="fa fa-power-off"></i> <%= link_to("Log out #{User.find_by(id: session[:user_id]).first_name.capitalize}", "/session", method: "delete") %></button>
-              
+
               <% else %>
-                  
+
               <!-- HEADER REGISTER : begin -->
               <div class="header-register">
                 <button class="register-toggle header-btn"><i class="fa fa-plus-circle"></i><a href="/users/new">Register</a></button>
@@ -168,7 +168,7 @@
               <% end %>
               </div>
               <!-- HEADER LOGIN : end -->
-          
+
 
             </div>
             <!-- HEADER TOOLS : end -->
