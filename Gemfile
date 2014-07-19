@@ -78,7 +78,7 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 
 # Angluar Stuff
-# source 'https://rails-assets.org'
+source 'https://rails-assets.org'
 gem "rails-assets-angular"
 
 group :development, :test do
